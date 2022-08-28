@@ -55,7 +55,12 @@ export default new Events({
   }
 })
 ```
-
+## :star: <samp>History</samp>
+<pre align="center">
+<a href="#star--history">
+<img alt="" align="center" width="96%" src="https://api.star-history.com/svg?repos=rxyhn/yoru&type=Date"/>
+</a>
+</pre>
 ### Recuerda que si tienes un problema o error ir a [Issues](https://github.com/PrintfDead/discord-bot/issues) y abrir un "issue/problema"
 ### Para soporte extra comunicate conmigo por discord
 - User: justPrintf. ⸸#0800
