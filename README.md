@@ -56,4 +56,7 @@ export default new Events({
 })
 ```
 
-### Recuerda que si tienes un problema o error ir a ![https://github.com/PrintfDead/discord-bot/issues](Issues) y abrir un "issue/problema"
+### Recuerda que si tienes un problema o error ir a [Issues](https://github.com/PrintfDead/discord-bot/issues) y abrir un "issue/problema"
+### Para soporte extra comunicate conmigo por discord
+- User: justPrintf. ⸸#0800
+- Discord Server: [OpenSafe](https://discord.gg/ZdMqhEWhUN)
