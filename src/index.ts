@@ -2,7 +2,7 @@ import Discord, { Client as Clientt, IntentsBitField, Partials } from 'discord.j
 import app from './app';
 
 const Client = new app.client.App({
-    token: "ODg1MjMzNzYxODI5MTQyNTY5.GD5tJQ.ezZYoA9nLNgzQ5vR8ieUMSkYyOFXdltnOwCSPU",
+    token: "TOKEN HERE",
     options: {
         intents: new IntentsBitField(32767), 
         partials: [

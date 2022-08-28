@@ -1,11 +1,11 @@
 import mysql from 'mysql';
 
 const connect = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Printf17',
+    host: 'HOSTNAME',
+    user: 'USERNAME',
+    password: 'PASSWORD',
     port: 3306,
-    database: 'Kazu'
+    database: 'NAME DATABASE'
 });
 
 connect.connect();
