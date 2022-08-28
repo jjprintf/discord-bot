@@ -45,13 +45,7 @@ export default new Events({
   name: 'eventName',
   once: boolean, // false = El evento se llama mas de una vez - true = El evento se llama una sola vez
   run: async (client, ...) => {
-    if(!int.isChatInputCommand()) return;
-    const slashCommand = client.commandsCollection.get(int.commandName);
-    //console.log(slashCommand);
-    if(!slashCommand) return;
-    try {
-        slashCommand.options.run(client, int);
-    } catch(e) { console.error(e); }
+    ...
   }
 })
 ```
