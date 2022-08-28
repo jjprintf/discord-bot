@@ -12,6 +12,13 @@ $ python install.py
 $ tsc
 $ node out/index.js
 ```
+Si no quieren usar el instalador pueden ejecutar estos comandos
+```sh
+$ npm init -y
+$ npm i typescript tslint -D
+$ npm i discord.js mysql (MYSQL is Optional) @types/mysql
+```
+
 ### [!] Recuerde configurar los siguientes archivos
 - src/libs/sql.ts ==> Tiene que poner los datos para hacer la conexion a la base de datos (Si no quieres usar base de datos (MySQL) simplemente elimina el archivo src/libs/sql.ts).
 - src/index.ts ==> Tiene que poner el token para poder conectar el bot.
