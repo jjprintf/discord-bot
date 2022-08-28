@@ -1,4 +1,4 @@
-import requests, subprocess, getch, time
+import requests, subprocess, getch, time, sys
 from colorama import Fore
 try:
     print(f"{Fore.BLUE}==> {Fore.WHITE}Inicializando package.json")
@@ -14,7 +14,10 @@ try:
     time.sleep(2)
     print(f"{Fore.BLUE}==> {Fore.WHITE}Mostrando rama de carpetas")
     time.sleep(2)
-    subprocess.run(["tree", "-I", "node_modules"])
+    if sys.platform == "windows":
+        subprocess.run(["tree", "-Exclude", "node_modules"])
+    else:
+        subprocess.run(["tree", "-I", "node_modules"])
     print(f"{Fore.BLUE}==> {Fore.WHITE}Presiona cualquier tecla para salir...")
     key = getch.getch()
     print(f"{Fore.BLUE}==> {Fore.WHITE}Saliendo del programa de instalacion...")
