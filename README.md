@@ -4,6 +4,8 @@
 - Node.JS 1.16.x
 - NPM
 
+## [!] Si no quieres usar base de datos (MySQL) simplemente elimina el archivo src/libs/sql.ts
+
 ### Usage:
 ```
 $ git clone https://github.com/PrintfDead/discord-bot.git
