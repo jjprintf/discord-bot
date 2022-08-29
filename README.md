@@ -15,6 +15,7 @@ $ npm start
 ### Informacion:
 <p align="center">Puedes encontrar el source del instalador en la carpeta "compile/", para iniciar en modo desarrollo usa "npm run dev".<br>
 Si eres usuario de windows y encuentras un error en el instalador, ejecuta los comandos manualmente.</p>
+
 ### Instalacion anterior instalador:
 ```
 $ git clone https://github.com/PrintfDead/discord-bot.git
