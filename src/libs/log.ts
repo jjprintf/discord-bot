@@ -10,10 +10,6 @@ export default class Log {
         this.CreateLog();
     }
 
-    public CreateFileLog(namefile: string) {
-        fs.appendFileSync(__dirname + '/../logs', namefile);
-    }
-
     private CreateLog() {
         const logfile = `${this._logfile}.log`;
         if (!fs.existsSync(__dirname + '/../logs/'+logfile))
@@ -38,6 +34,6 @@ export default class Log {
     }
 
     private ErrorLog(str: string, code: number) {
-        console.error("==> ERROR Log Auto Detect: "+str, code);
+        console.error("==> ERROR Log: "+str, code);
     }
 }
