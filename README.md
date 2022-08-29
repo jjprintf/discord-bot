@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Discord-Bot
 ## [!] Se requiere tener instalado lo siguiente:
 - Python 3.10.x
