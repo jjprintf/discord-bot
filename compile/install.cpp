@@ -62,7 +62,7 @@ int main() {
 
         msg("Instalando paquetes necesarios para ejecutar bot.");
         sleep(3);
-        system("npm i discord.js mysql @types/mysql");
+        system("npm i discord.js");
         msg("Instalando dependencias de desarrollo");
         sleep(2);
         system("npm i typescript eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin nodemon ts-node -D");
