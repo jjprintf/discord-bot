@@ -2,8 +2,8 @@ import fs from 'fs';
 
 export default class Log {
     public _logfile: string;
-    public _log: string;
-    constructor (_logfile: string, _log: any) {
+    public _log: string | object;
+    constructor (_logfile: string, _log: string | object) {
         this._logfile = _logfile;
         this._log = _log;
 
@@ -15,8 +15,8 @@ export default class Log {
         if (!fs.existsSync(__dirname + '/../logs/'+logfile))
             return this.ErrorLog("file not found", 32);
         
-        let formatFile = () => {
-            let message = `
+        const formatFile = () => {
+            const message = `
             ==========================================================
             ==========================================================
             ===> MySQL Kazutora new log
@@ -26,7 +26,7 @@ export default class Log {
             `
             try {
                 fs.writeFileSync(__dirname + '/../logs/'+logfile, message, 'utf8');
-            } catch (e) {console.error("Ocurrio un error.");};
+            } catch (e) {console.error("Ocurrio un error.");}
 
         }
         formatFile();
@@ -37,3 +37,4 @@ export default class Log {
         console.error("==> ERROR Log: "+str, code);
     }
 }
+
