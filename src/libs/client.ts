@@ -54,16 +54,15 @@ export class App {
     }
 
     private async SlashRegister() {
-        const commands: any[] = [];
+        const commands: unknown[] = [];
         const commandsFolder = fs.readdirSync(__dirname + '/../commands');
-        for (let folder of commandsFolder) {
-            const commandsFile = fs.readdirSync(__dirname + `/../commands/${folder}`).filter(file => file.endsWith('.js'));
-            for (let file of commandsFile) {
-                const command = await import(__dirname + `/../commands/${folder}/${file}`).then((data) => {
+        for (const folder of commandsFolder) {
+            const commandsFile = fs.readdirSync(__dirname + `/../commands/${folder}`).filter((file: string) => file.endsWith('.js'));
+            for (const file of commandsFile) {
+                await import(__dirname + `/../commands/${folder}/${file}`).then((data) => {
                     commands.push(data.default.data.toJSON());
                     this.Log(`Slash Command Register -> ${data.default.data.name}`);
-                }).catch((e:any) => console.error(e));
-                //console.log(commands);
+                }).catch((e:unknown) => console.error(e));
             }
         }
 
@@ -80,45 +79,48 @@ export class App {
 
     private async SlashLoad() {
         const commandsFolder = fs.readdirSync(__dirname + '/../commands');
-        for (let folder of commandsFolder) {
-            const commandsFile = fs.readdirSync(__dirname + `/../commands/${folder}`).filter(file => file.endsWith('.js'));
-            for (let file of commandsFile) {
-                const command = await import(__dirname + `/../commands/${folder}/${file}`).then((data) => {
+        for (const folder of commandsFolder) {
+            const commandsFile = fs.readdirSync(__dirname + `/../commands/${folder}`).filter((file: string) => file.endsWith('.js'));
+            for (const file of commandsFile) {
+                await import(__dirname + `/../commands/${folder}/${file}`).then((data) => {
                     this.client.commandsCollection.set(data.default.data.name, data.default);
                     this.Log(`Slash Command Added ==> ${data.default.data.name}`);
-                }).catch((e:any) => console.error(e));
+                }).catch((e: unknown) => console.error(e));
                 
             }
         }
     }
 
     private async Event() {
-        const eventsFiles = fs.readdirSync(__dirname + '/../events').filter(file => file.endsWith('.js'));
-        for (let file of eventsFiles) {
-            const events = await import(__dirname + `/../events/${file}`).then((data) => {
+        const eventsFiles = fs.readdirSync(__dirname + '/../events').filter((file: string) => file.endsWith('.js'));
+        for (const file of eventsFiles) {
+            await import(__dirname + `/../events/${file}`).then((data) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 if(data.default.once) this.client.once(data.default.name, (...args: any) => data.default.run(this.client, ...args));
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 else this.client.on(data.default.name, (...args: any) => data.default.run(this.client, ...args));
                 this.Log(`Event Added -> ${data.default.name}`);
-            }).catch((e:any) => console.error(e));
+            }).catch((e:unknown) => console.error(e));
         }
     }
 }
 
 type optionsCommands = {
     data: SlashCommandBuilder,
-    run: (client: Client, int: CommandInteraction) => any;
+    run: (client: Client, int: CommandInteraction) => void;
 }
 
 type optionsEvents = {
     name: string;
     once: boolean;
-    run: (client: Client, ...args: any) => any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    run: (client: Client, ...args: any) => void;
 }
 
 export class Command {
     public options: optionsCommands;
     public data: SlashCommandBuilder;
-    public run: (client: Client, int: CommandInteraction) => any;
+    public run: (client: Client, int: CommandInteraction) => void;
 
     constructor(options: optionsCommands) {
         this.options = options;
@@ -130,7 +132,8 @@ export class Command {
 export class Events {
     public options: optionsEvents;
     public name: string;
-    public run: (client: Client, ...args: any) => any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    public run: (client: Client, ...args: any) => void;
     public once: boolean;
     constructor(options: optionsEvents) {
         this.options = options;
