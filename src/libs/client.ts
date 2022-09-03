@@ -107,20 +107,20 @@ export class App {
 
 type optionsCommands = {
     data: SlashCommandBuilder,
-    run: (client: Client, int: CommandInteraction) => void;
+    run: (client: App, int: CommandInteraction) => void;
 }
 
 type optionsEvents = {
     name: string;
     once: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    run: (client: Client, ...args: any) => void;
+    run: (client: App, ...args: any) => void;
 }
 
 export class Command {
     public options: optionsCommands;
     public data: SlashCommandBuilder;
-    public run: (client: Client, int: CommandInteraction) => void;
+    public run: (client: App, int: CommandInteraction) => void;
 
     constructor(options: optionsCommands) {
         this.options = options;
@@ -133,7 +133,7 @@ export class Events {
     public options: optionsEvents;
     public name: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    public run: (client: Client, ...args: any) => void;
+    public run: (client: App, ...args: any) => void;
     public once: boolean;
     constructor(options: optionsEvents) {
         this.options = options;
