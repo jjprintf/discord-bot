@@ -22,15 +22,6 @@ int main() {
     int inDiscordBot = 0;
     int Exists = 0;
 
-    char* tmp = get_current_dir_name();
-    std::string s(tmp);
-
-    s.find("discord-bot") != std::string::npos ?
-        inDiscordBot = 1 : 
-        inDiscordBot = 0;
-
-
-    if (inDiscordBot == 0) { msg("No me encuentro en el directorio del bot."); exit(1);}
     msg("Buscando directorios y archivos.");
     sleep(5);
     if(checkFolder("node_modules") == 0) {
@@ -74,7 +65,7 @@ int main() {
         system("npm i discord.js mysql @types/mysql");
         msg("Instalando dependencias de desarrollo");
         sleep(2);
-        system("npm i typescript tslint eslint nodemon ts-node -D");
+        system("npm i typescript eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin nodemon ts-node -D");
         msg("Paquetes instalados");
         sleep(2);
         msg("Transpilando codigo.");
@@ -115,7 +106,7 @@ int main() {
         system("npm i discord.js mysql @types/mysql");
         msg("Instalando dependencias de desarrollo");
         sleep(2);
-        system("npm i typescript tslint eslint nodemon ts-noe -D");
+        system("npm i typescript eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin nodemon ts-node -D");
         msg("Paquetes instalados");
         sleep(2);
         msg("Transpilando codigo.");

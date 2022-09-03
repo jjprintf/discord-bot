@@ -30,6 +30,12 @@ $ npm i discord.js mysql @types/mysql
 $ tsc
 $ npm start
 ```
+### Comandos de desarrollo:
+```sh
+$ npm run lint # Iniciar eslint.
+$ npm run dev # Iniciar nodemon para typescript.
+```
+- Se recomienda configurar el archivo .eslintrc para mejorar su linter.
 
 ### [!] Recuerde configurar los siguientes archivos
 - src/index.ts ==> Tiene que poner el token para poder conectar el bot.

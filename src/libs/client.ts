@@ -10,14 +10,22 @@ type arguments = {
 
 type Collect = Collection<string, object>;
 
+class Cliente extends Client {
+  public commandsCollection: Collect;
+  constructor(options: ClientOptions) {
+    super(options);
+    this.commandsCollection = new Collection();
+  }
+}
+
 export class App {
     public args: arguments;
-    public client: Client;
+    public client: Cliente;
     public agent: Agent;
     constructor(args: arguments) {
         this.args = args;
 
-        this.client = new Client(this.args.options);
+        this.client = new Cliente(this.args.options);
         this.agent = new Agent({
             connect: {
                 timeout: 3000

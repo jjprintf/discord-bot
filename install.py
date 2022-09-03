@@ -4,7 +4,7 @@ try:
     time.sleep(3)
     print(f"{Fore.BLUE}==> {Fore.WHITE}Instalando paquetes")
     time.sleep(2)
-    subprocess.run(["npm", "install", "typescript", "tslint", "eslint", "nodemon", "ts-node", "-D"])
+    subprocess.run(["npm", "install", "typescript", "eslint", "@typescript-eslint/parser", "@typescript-eslint/eslint-plugin", "nodemon", "ts-node", "-D"])
     subprocess.run(["npm", "install", "discord.js", "mysql", "@types/mysql"])
     time.sleep(3)
     print(f"{Fore.BLUE}==> {Fore.WHITE}Paquetes instalados")
