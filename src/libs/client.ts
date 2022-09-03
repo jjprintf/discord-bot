@@ -8,9 +8,11 @@ type arguments = {
     options: ClientOptions,
 }
 
+type Collect = Collection<string, object>;
+
 export class App {
     public args: arguments;
-    public client: Client | any;
+    public client: Client;
     public agent: Agent;
     constructor(args: arguments) {
         this.args = args;
@@ -95,7 +97,7 @@ export class App {
 }
 
 type optionsCommands = {
-    data: SlashCommandBuilder | any,
+    data: SlashCommandBuilder,
     run: (client: Client, int: CommandInteraction) => any;
 }
 
