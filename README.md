@@ -1,5 +1,5 @@
 # **Discord-Bot**
-## [!] The following is required to be installed:
+## [!] The toools is required to be installed:
 - Node.JS 1.19.x
 - NPM
 
@@ -83,7 +83,7 @@ client.log.on('log', (message: string, _log_type) => {
    */
 });
 // more info in kernel/Log.ts
-``
+```
 
 ## :star: <samp>History</samp>
 <pre align="center">
