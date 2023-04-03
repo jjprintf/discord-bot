@@ -57,6 +57,34 @@ export default new Event({
   }
 })
 ```
+# It also has a built-in log system through events
+- The kernel emits an event called 'log' where you will receive ERRORS, SUCCESS, INFO messages.
+## Usage
+- This example needs the client started, I will take the index.ts file as an example
+```ts
+import Discord, { Client as Client, IntentsBitField, Partials } from 'discord.js';
+import { Kernel } from '../kernel/Kernel';
+
+export const client = new Kernel({
+    token: "TOKEN HERE",
+    ID: "ID OF BOT",
+    client_options: {
+        intents: [], // Put your intents here
+        partials: [] // Put your partials here
+    }
+});
+
+client.log.on('log', (message: string, _log_type) => {
+  if (_log_type.ERROR) return console.error(message);
+  console.log(message);
+  /**
+   * @message {string} Returns a message with the format "! [LOG_TYPE] {message}"
+   * @log_type {string}returns a type of the _log enumerator ERROR, SUCCESS or INFO
+   */
+});
+// more info in kernel/Log.ts
+``
+
 ## :star: <samp>History</samp>
 <pre align="center">
 <a href="#star--history">

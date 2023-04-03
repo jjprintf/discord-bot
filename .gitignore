@@ -1,4 +1,5 @@
 # Dirs
 node_modules/
+out/
 .idea/
 .vscode/

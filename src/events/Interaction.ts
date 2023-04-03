@@ -9,7 +9,7 @@ export default new Event({
     run: async (client: Kernel, int: Discord.CommandInteraction) => {
     if(!int.isChatInputCommand()) return;
         const slashCommand: any = client.cmd_collection.get(int.commandName);
-        //console.log(slashCommand);
+
         if(!slashCommand) return;
         try {
             slashCommand._options.run(client, int);

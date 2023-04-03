@@ -5,13 +5,8 @@ export const client = new Kernel({
     token: "TOKEN HERE",
     ID: "ID OF BOT",
     client_options: {
-        intents: new IntentsBitField(32767), 
-        partials: [
-            Partials.Message, 
-            Partials.User, 
-            Partials.Channel, 
-            Partials.GuildMember
-        ]
+        intents: [], // Put your intents here
+        partials: [] // Put your partials here
     }
 });
 

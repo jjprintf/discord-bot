@@ -7,7 +7,8 @@ export enum _log {
 }
 
 type _data = {
-    message: string
+    message: string,
+    log_type: _log
 }
 
 export interface EmitterEvents {
@@ -24,7 +25,7 @@ export class Log extends EventEmitter {
         super();
     }
 
-    public logger(message: string, log_type: _log) {
-        this.emit("log", {message: `! [${log_type}] ${message}`});
+    public logger(message: string, _log_type: _log) {
+        this.emit("log", {message: `! [${_log_type}] ${message}`, log_type: _log_type});
     }
 }

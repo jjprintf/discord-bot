@@ -6,16 +6,11 @@ export default new Event({
   name: 'ready',
   once: true,
   run: async (client: Kernel) => {
-    console.log('==> Bot Iniciado');
+    console.log('==> Bot started');
     const acts = [
       {
-        name: 'UWU',
-        url: '',
-        type: 'Playing'
-      },
-      {
-        name: 'Version Beta 1.0z',
-        url: '',
+        name: 'github.com/PrintfDead/discord-bot',
+        url: 'https://github.com/PrintfDead/discord-bot',
         type: 'Watching'
       }
     ];
