@@ -1,16 +1,18 @@
 import Discord from 'discord.js';
-import { Events } from '../libs/client';
+import { Event } from '../../kernel/Event';
+import { Kernel } from '../../kernel/Kernel';
+import {_log} from "../../kernel/Log";
 
-export default new Events({
+export default new Event({
     name: 'interactionCreate',
     once: false,
-    run: async (client: any, int: Discord.Interaction) => {
+    run: async (client: Kernel, int: Discord.CommandInteraction) => {
     if(!int.isChatInputCommand()) return;
-        const slashCommand = client.commandsCollection.get(int.commandName);
+        const slashCommand: any = client.cmd_collection.get(int.commandName);
         //console.log(slashCommand);
         if(!slashCommand) return;
         try {
-            slashCommand.options.run(client, int);
-        } catch(e) { console.error(e); }
+            slashCommand._options.run(client, int);
+        } catch(e) { client.log.logger(`${e}`, _log.ERROR); }
     }
 })

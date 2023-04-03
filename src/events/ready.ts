@@ -1,12 +1,13 @@
 import discord from 'discord.js';
-import { Events } from '../libs/client';
+import { Event } from '../../kernel/Event';
+import { Kernel } from '../../kernel/Kernel';
 
-export default new Events({
+export default new Event({
   name: 'ready',
   once: true,
-  run: async (client: any) => {
+  run: async (client: Kernel) => {
     console.log('==> Bot Iniciado');
-    let acts = [
+    const acts = [
       {
         name: 'UWU',
         url: '',
@@ -17,16 +18,16 @@ export default new Events({
         url: '',
         type: 'Watching'
       }
-    ]
+    ];
     
-    let i = Math.floor(Math.random() * acts.length);
-    console.log(acts[i])
-    console.log(discord.ActivityType.Playing);
-    client.user.setActivity(acts[i].name, { type: discord.ActivityType.Playing });
+    const i = Math.floor(Math.random() * acts.length);
+
+    client.user?.setActivity(acts[i].name, { type: discord.ActivityType.Playing });
     setInterval(() => {
-      let i = Math.floor(Math.random() * acts.length);
-      console.log(acts[i])
-      client.user.setActivity(acts[i].name, { type: discord.ActivityType.Playing });
-    }, 15000)
+      const i2 = Math.floor(Math.random() * acts.length);
+
+      client.user?.setActivity(acts[i2].name, { type: discord.ActivityType.Playing });
+    }, 15000);
+
   }
-})
+});

@@ -1,9 +1,10 @@
-import Discord, { Client as Clientt, IntentsBitField, Partials } from 'discord.js';
-import app from './app';
+import Discord, { Client as Client, IntentsBitField, Partials } from 'discord.js';
+import { Kernel } from '../kernel/Kernel';
 
-const Client = new app.client.App({
+export const client = new Kernel({
     token: "TOKEN HERE",
-    options: {
+    ID: "ID OF BOT",
+    client_options: {
         intents: new IntentsBitField(32767), 
         partials: [
             Partials.Message, 
@@ -14,4 +15,3 @@ const Client = new app.client.App({
     }
 });
 
-export const client: Clientt = Client.client;
