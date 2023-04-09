@@ -1,5 +1,5 @@
 import Discord, { Client as Client, IntentsBitField, Partials } from 'discord.js';
-import { Kernel } from '../kernel/Kernel';
+import { Kernel } from './kernel/Kernel';
 
 export const client = new Kernel({
     token: "TOKEN HERE",

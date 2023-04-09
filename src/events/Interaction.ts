@@ -1,7 +1,7 @@
 import Discord from 'discord.js';
-import { Event } from '../../kernel/Event';
-import { Kernel } from '../../kernel/Kernel';
-import {_log} from "../../kernel/Log";
+import { Event } from '../kernel/Event';
+import { Kernel } from '../kernel/Kernel';
+import {_log} from "../kernel/Log";
 
 export default new Event({
     name: 'interactionCreate',

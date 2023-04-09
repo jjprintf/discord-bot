@@ -1,6 +1,6 @@
 import discord from 'discord.js';
-import { Event } from '../../kernel/Event';
-import { Kernel } from '../../kernel/Kernel';
+import { Event } from '../kernel/Event';
+import { Kernel } from '../kernel/Kernel';
 
 export default new Event({
   name: 'ready',

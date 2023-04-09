@@ -8,7 +8,7 @@
     "strict": true,
     "allowJs": true,
     "experimentalDecorators": true,
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "typeRoots": [
       "node_modules/@types",
       "mysql",

@@ -28,7 +28,7 @@ $ npm run dev # Start nodemon for typescript.
 ## Code of Command:
 ```ts
 import { SlashCommandBuilder } from 'discord.js';
-import { Command } from '../../../kernel/Command';
+import { Command } from 'path/to/kernel/Command';
 
 export default new Command({
   data: new SlashCommandBuilder()
@@ -46,12 +46,12 @@ export default new Command({
 ## Code of Events:
 ```ts
 import Discord from 'discord.js';
-import { Kernel } from '../../kernel/Kernel';
-import { Event } from '../../kernel/Event';
+import { Kernel } from 'path/to/kernel/Kernel';
+import { Event } from 'path/to/kernel/Event';
 
 export default new Event({
   name: 'eventName',
-  once: boolean, // false = El evento se llama mas de una vez - true = El evento se llama una sola vez
+  once: boolean,
   run: async (client: Kernel, ...) => {
     ...
   }
@@ -63,7 +63,7 @@ export default new Event({
 - This example needs the client started, I will take the index.ts file as an example
 ```ts
 import Discord, { Client as Client, IntentsBitField, Partials } from 'discord.js';
-import { Kernel } from '../kernel/Kernel';
+import { Kernel } from 'path/to/kernel/Kernel';
 
 export const client = new Kernel({
     token: "TOKEN HERE",
@@ -85,12 +85,45 @@ client.log.on('log', (message: string, _log_type) => {
 // more info in kernel/Log.ts
 ```
 
-## :star: <samp>History</samp>
-<pre align="center">
-<a href="#star--history">
-<img alt="" align="center" width="96%" src="https://api.star-history.com/svg?repos=PrintfDead/discord-bot&type=Date"/>
-</a>
-</pre>
+# How to use States
+- State, used to create state variables, can simplify the movement of data and variables in your code.
+# Example:
+```ts
+import { CreateState } from 'path/to/kernel/State';
+
+const [name, setName] = CreateState<string>("");
+
+// name is readonly
+// setName is setter.
+setName("Printf.");
+// Expected output: name = Printf.
+```
+
+# How to use Contexts
+- Context, serves to create a context that you can use globally than your code.
+# Example
+```ts
+import { Context } from 'path/to/kernel/Context';
+import { CreateState } from 'path/to/kernel/State';
+
+const UserContext = new Context<object>({
+  name: string,
+  setUserName: () => {}
+});
+
+const [name, setName] = CreateState<string>("");
+
+UserContext.Provider({ name, setName }); // set value of name and setUserName
+
+const [name, setName] = UserContext.Get(); // get value of name and setUserName
+```
+
+### Information:
+- CreateState setters are incomplete and it's a BETA feature, same for Context.
+- Context and CreateState accept all types of values, more functions will be added soon.
+
+<br><br>
+
 ### Remember that if you have a problem or error go to [Issues](https://github.com/PrintfDead/discord-bot/issues) and open an "issue"
 ### For extra support contact me on discord
 - User: justPrintf.#9145
